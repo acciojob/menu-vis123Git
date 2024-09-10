@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import data from "../data";
 import Card from "./Card";
+import "../styles/App.css"
 
 function App() {
   const [menuItems, setMenuItems] = useState([]);
@@ -26,15 +27,14 @@ function App() {
   };
 
   return (
-    <main id="main">
-      <section className="menu section">
+      <div className="menu section" id="main">
         <div className="title">
           <h2>Our Menu</h2>
           <div className="underline"></div>
         </div>
         <div className="btn-container">
           {categories.map((category, index) => (
-            <button type="button" className="filter-btn" id={`filter-btn-${index}`} key={index} onClick={() => filterItems(category)}>
+            <button type="button" className="filter-btn" data-test-id={`menu-item-${category.toLowerCase()}`} id={`filter-btn-${index}`} key={index} onClick={() => filterItems(category)}>
               {category}
             </button>
           ))}
@@ -44,8 +44,7 @@ function App() {
             return <Card item={item} />;
           })}
         </div>
-      </section>
-    </main>
+      </div>
   );
 }
 
