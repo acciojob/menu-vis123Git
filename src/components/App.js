@@ -18,7 +18,7 @@ function App() {
   }, []);
 
   const filterItems = (category) => {
-    if (category === "all") {
+    if (category.toLowerCase() === "all") {
       setMenuItems(data);
     } else {
       const newItems = data.filter((item) => item.category.toLowerCase() == category.toLowerCase());
