@@ -1,12 +1,26 @@
-h1 {
-    color: #27aedb;
-    text-align: center;
-    }
-    
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-button{
-    color: #27aedb;
-    text-align: center;
+#main{
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100vw;
+    height: 100vh;
+    gap : 20px;
+    margin: 20px;
+}
+
+.underline{
+    text-align: center;
+    align-items: center;
+    margin: auto;
+    background-color: #CEAF7E;
+    height: 3px;
+    width: 50%;
+    border-radius: 20px;
 }
