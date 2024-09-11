@@ -36,7 +36,7 @@ function App() {
         {categories.map((category, index) => (
           <button
             type="button"
-            className="filter-btn"
+            // className="filter-btn"
             data-test-id={`menu-item-${category.toLowerCase()}`}
             id={`filter-btn-${index}`}
             key={index}
