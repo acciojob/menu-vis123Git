@@ -37,7 +37,7 @@ function App() {
           <button
             type="button"
             className="filter-btn"
-            data-testid={`menu-item-${category.toLowerCase()}`}
+            data-test-id={`menu-item-${category.toLowerCase()}`}
             id={`filter-btn-${index}`}
             key={index}
             onClick={() => filterItems(category)}
