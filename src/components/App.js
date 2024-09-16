@@ -10,10 +10,7 @@ function App() {
   useEffect(() => {
     setMenuItems(data);
     // Get unique categories including "All"
-    const uniqueCategories = ["All", ...new Set(data.map((item) => {
-      const itm = item.category;
-      return itm[0].toUpperCase() + itm.slice(1).toLowerCase();
-    }))];
+    const uniqueCategories = ["All", ...new Set(data.map((item) => item.category))];
     setCategories(uniqueCategories);
   }, []);
 
@@ -38,18 +35,18 @@ function App() {
             type="button"
             className="filter-btn"
             data-test-id={`menu-item-${category.toLowerCase()}`}
-            // id={`filter-btn-${index}`}
-            key={index}
+            id={`filter-btn-${index}`}
+            key={category}
             onClick={() => filterItems(category)}
           >
-            {category}
+            {category.charAt(0).toUpperCase() + category.slice(1)}
           </button>
         ))}
       </div>
       <div className="section-center">
-        {menuItems.map((item) => {
-          return <Card key={item.id} item={item} />;
-        })}
+        {menuItems.map((item) => (
+          <Card key={item.id} item={item} />
+        ))}
       </div>
     </div>
   );
