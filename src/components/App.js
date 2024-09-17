@@ -6,7 +6,6 @@ import "../styles/App.css";
 function App() {
   const [menuItems, setMenuItems] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [activeCategory, setActiveCategory] = useState("All");
 
   useEffect(() => {
     setMenuItems(data);
@@ -15,7 +14,6 @@ function App() {
   }, []);
 
   const filterItems = (category) => {
-    setActiveCategory(category);
     if (category.toLowerCase() === "all") {
       setMenuItems(data);
     } else {
@@ -32,18 +30,16 @@ function App() {
       </div>
       <div className="btn-container">
         {categories.map((category, index) => (
-          (activeCategory === "All" || category === activeCategory || category === "All") && (
-            <button
-              type="button"
-              className="filter-btn"
-              data-test-id={`menu-item-${category.toLowerCase()}`}
-              id={`filter-btn-${index}`}
-              key={category}
-              onClick={() => filterItems(category)}
-            >
-              {category.charAt(0).toUpperCase() + category.slice(1)}
-            </button>
-          )
+          <button
+            type="button"
+            className="filter-btn"
+            data-test-id={`menu-item-${category.toLowerCase()}`}
+            id={`filter-btn-${index}`}
+            key={category}
+            onClick={() => filterItems(category)}
+          >
+            {category.charAt(0).toUpperCase() + category.slice(1)}
+          </button>
         ))}
       </div>
       <div className="section-center">
